@@ -1,0 +1,121 @@
+.field_error {
+    color: red;
+    font-family: sans-serif,Arial;
+    font-size: 14px;
+}
+.field_correct {
+    color: green;
+    font-family: sans-serif,Arial;
+    font-size: 14px;
+}
+.register_msg p{
+    color: darkgreen;
+    font-family: sans-serif,Arial;
+    font-size: 14px;
+    font-weight: bold;
+}
+.accordion .accordion__hide {
+	background: #f4f4f4;
+	height: 65px;
+	line-height: 65px;
+	display: flex;
+	align-items: center;
+	padding: 0 30px;
+	position: relative;
+	font-size: 16px;
+	font-weight: 600;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+	font-family: "Poppins";
+	cursor: pointer;
+}
+.header_order{
+    margin-right: 10px;
+}
+.header_order a {
+    color: #000;
+    font-size: 19px;
+    margin-right: 5px;
+    padding-right: 20px;
+    position: relative;
+}
+.header_order a::before {
+    background: #898989 none repeat scroll 0 0;
+    content: "";
+    height: 15px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 2px;
+}
+.header__account{
+    margin-left: 15px;
+}
+.head_search_btn{
+    margin-right: 20px;
+}
+.head_search_btn a{
+    position: relative;
+    
+}
+.head_search_btn a::before {
+    background: #898989 none repeat scroll 0 0;
+    content: "";
+    height: 15px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 2px;
+}
+.forget_password a{
+    float: right;
+    text-decoration: none;
+    margin-right: 5px;
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.forget_password a:hover{color: #C43B68;}
+.discount_input {
+    width: 48% !important;
+    border: 2px solid green !important;
+    margin-left: 33px !important;
+    margin-bottom: 10px !important;
+}
+.discount_txt {
+    color: deepskyblue;
+    text-transform: capitalize;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-left: 12px;
+}
+.discount_btn{
+    width: 35%;
+    height: 60px;
+    margin-left: -10px;
+    border-radius: 5px;
+}
+#coupon_box {
+    display: none;
+}
+
+.order-details .order_cupon_details{
+    margin: 0 30px !important;
+    padding: 30px 0 !important;
+    justify-content: space-between !important;
+}
+.order-details .order_cupon_details h5{
+    color: #3f3f3f !important;
+    text-transform: uppercase !important;
+    font-size: 16px !important;
+    letter-spacing: 1px !important;
+    font-weight: 700 !important;
+}
+.order-details .order_cupon_details span.c_price{
+    text-align: left !important;
+    font-weight: 700 !important;
+    font-family: "Poppins" !important;
+    letter-spacing: 1px !important;
+}

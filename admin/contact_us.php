@@ -1,0 +1,90 @@
+<?php
+  //include header.php page
+  require('header.inc.php');
+
+  //check admin or not.If not admin then redirect product page through call isAdmin() function
+  isAdmin();
+      
+  /**This is for Delete Button.**/
+  if(isset($_GET['type']) && $_GET['type']!=''){
+      //hold 'type' value & pass it with 'database connection link' through 'get_safe_value()' method in function.inc.php page
+	  $type = get_safe_value($con, $_GET['type']);	  
+      //check user click delete button
+      if($type=='delete'){
+          //hold 'id' that we pass when click Delete Button & pass these data with 'Database connection link' through 'get_safe_value()' function
+          $id = get_safe_value($con, $_GET['id']);
+          //write delete query for delete data
+          $delete_sql = "DELETE FROM contact_us WHERE id='$id'";
+          //execute this delete query by using 'mysqli_query()' function
+          mysqli_query($con, $delete_sql);
+      }
+  }
+
+      //write select query for show data from 'contact_us' table
+      $sql = "SELECT * FROM contact_us ORDER BY id DESC";
+      //execute this $sql query through by 'mysqli_query(database_connection, query)' function
+      $res = mysqli_query($con, $sql);
+
+?> 
+
+<div class="content pb-0">
+    <div class="orders">
+       <div class="row">
+          <div class="col-xl-12">
+             <div class="card">
+                <div class="card-body">
+                   <h4 class="box-title">Contact Us </h4>
+                </div>
+                <div class="card-body--">
+                   <div class="table-stats order-table ov-h">
+                      <table class="table ">
+                         <thead>
+                            <tr>
+                               <th class="serial">#</th>
+                               <th>ID</th>
+                               <th>Name</th>
+                               <th>Email</th>
+                               <th>Mobile</th>
+                               <th>Comment</th>
+                               <th>Date</th>
+                               <th></th>
+                            </tr>
+                         </thead>
+                         <tbody>
+                           <!-- Write while loop to show data from database 'contact_us' table -->
+                           <?php 
+                              //create a variable for show serial number
+                              $i = 1;
+                              //hold/put all data from 'contact_us' table by using 'mysqli_fetch_assoc()'
+                              while($row=mysqli_fetch_assoc($res)){ ?>
+                            <tr>
+                               <td class="serial"><?php echo $i; ?></td>
+                               <td><?php echo $row['id']; ?></td>
+                               <td><?php echo $row['name']; ?></td>
+                               <td style="text-transform:lowercase;"><?php echo $row['email']; ?></td>
+                               <td><?php echo $row['mobile']; ?></td>
+                               <td><?php echo $row['comment']; ?></td>
+                               <td><?php echo $row['added_on']; ?></td>
+                               <td>
+                                   <?php 
+                                      //This is for click Delete Button                               
+                                      echo "<span class='badge badge-delete'><a href='?type=delete&id=".$row['id']."'>Delete</a></span>";                              
+                                    ?>
+                               </td>
+                            </tr>
+                            <?php $i++; } ?>
+                            
+                         </tbody>
+                      </table>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+</div>
+
+<?php
+   //include footer.php page
+   require('footer.inc.php');
+?>
